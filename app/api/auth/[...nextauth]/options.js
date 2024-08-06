@@ -38,8 +38,8 @@ export const authOptions = {
                 // (i.e., the request IP address)
 
                 const users = [
-                    { id: 1, name: 'J Smith', email: 'jsmith@example.com', password: "hello" },
-                    { id: 2, name: 'hari', email: 'jsmith@example.com', password: "hello" }
+                    { id: 1, name: 'J Smith', email: 'jsmith@example.com', password: "hello", role: "admin" },
+                    { id: 2, name: 'hari', email: 'jsmith@example.com', password: "hello", role: "user" }
                 ]
 
                 const findUser = users.find((user) => user.name === credentials.username && user.password === credentials.password)
@@ -58,6 +58,7 @@ export const authOptions = {
 
             if (token) {
                 session.user.id = token.sub
+                session.user.role = token.role
             }
             return session
         },
@@ -65,6 +66,7 @@ export const authOptions = {
             // Persist the OAuth access_token and or the user id to the token right after signin
             if (user) {
                 token.id = user.id
+                token.role = user.role
             }
             return token
         }
