@@ -5,14 +5,13 @@ import { redirect } from "next/navigation";
 
 export default async function Admin() {
     const session = await getServerSession(authOptions);
-    if (!session) {
-        redirect('/login')
-    }
+    // if (!session) {
+    //     redirect('/login')
+    // }
 
-    if (session.user.role !== "admin") {
-        redirect('/')
-
-    }
+    // if (session.user.role !== "admin") {
+    //     redirect('/')
+    // }
 
 
     return (
