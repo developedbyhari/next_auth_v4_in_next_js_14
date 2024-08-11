@@ -36,9 +36,11 @@ export default function Login() {
                 <input name="password" type="password" />
                 <button>submit</button>
             </form>
-            <button onClick={() => signIn("github")} >sign in with github</button>
-            <button onClick={() => signIn("google")}>sign in with google</button>
-            <button onClick={() => signIn("facebook")}>sign in with facebook</button>
+            <button onClick={() => signIn("github", {
+                callbackUrl: "/clienthome"
+            })} >sign in with github</button>
+            {/* <button onClick={() => signIn("google")}>sign in with google</button>
+            <button onClick={() => signIn("facebook")}>sign in with facebook</button> */}
         </>
     )
 }

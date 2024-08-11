@@ -7,7 +7,9 @@ function ClientHome() {
     return (
         <>
             {JSON.stringify(session)}
-            {session.status !== "unauthenticated" && <button onClick={() => signOut()} >signOut</button>}
+            {session.status !== "unauthenticated" && <button onClick={() => signOut({
+                callbackUrl: "/login"
+            })} >signOut</button>}
         </>
     )
 }
